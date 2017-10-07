@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据表格 datagrid</title>
+		<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="../js/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../js/easyui/locale/easyui-lang-zh_CN.js"></script>
+		<link rel="stylesheet" href="../js/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" href="../js/easyui/themes/icon.css" />
+		<script type="text/javascript">
+			$(function(){
+				//页面加载后，对datagrid进行设置
+				$("#grid").datagrid({
+					columns:[[ // 二维数组   支持  多级表头，每一个数组 就是表头一行
+						{
+							field:"id",// 用于和服务器返回json中字段对应
+							title:"编号",// 列标题显示内容， <th>
+							width:100
+						},
+						{
+							field:"name",
+							title:"商品名称",
+							width:100
+						},
+						{
+							field:"price",
+							title:"价格",
+							width:100
+						}
+					]],
+					url:"product.json",
+				});
+			});
+		</script>
+	</head>
+	<body >
+		<table id="grid"></table>
+	</body>
+</html>
