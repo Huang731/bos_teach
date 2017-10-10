@@ -1,7 +1,10 @@
+/Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/dao/base/CourierRepository.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/Archive.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/SubArchive.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/FixedArea.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/web/action/base/StandardAction.java
+/Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/service/Impl/CourierServiceImpl.java
+/Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/service/CourierService.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/SubArea.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/Vehicle.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/TakeTime.java
@@ -9,5 +12,6 @@
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/service/Impl/StandardServiceImpl.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/service/StandardService.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/Area.java
+/Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/web/action/base/CourierAction.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/dao/base/StandardRepository.java
 /Users/eric/eclipse-bos v2.0/bos_teach/bos_management/src/main/java/cn/itcast/bos/domain/base/Courier.java

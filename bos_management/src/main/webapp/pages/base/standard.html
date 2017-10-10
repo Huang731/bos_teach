@@ -27,10 +27,10 @@
 					border : false,
 					rownumbers : true,
 					striped : true,
-					pageList: [30,50,100],
+					pageList: [3,5,10],
 					pagination : true,
 					toolbar : toolbar,
-					url : "../../data/standard.json",
+					url : "../../standard_pageQuery.action",
 					idField : 'id',
 					columns : columns
 				});
@@ -58,21 +58,16 @@
 				text : '修改',
 				iconCls : 'icon-edit',
 				handler : function(){
-					alert('修改');
-				}
-			},{
-				id : 'button-delete',
-				text : '作废',
-				iconCls : 'icon-cancel',
-				handler : function(){
-					alert('作废');
-				}
-			},{
-				id : 'button-restore',
-				text : '还原',
-				iconCls : 'icon-save',
-				handler : function(){
-					alert('还原');
+					//获取当前选中的数据
+					var rows = $("#grid").datagrid('getSelections');
+					if(rows.length!=1){
+						$.messager.alert("提示信息","修改数据时，只能选择一行","warning");
+					}else{
+						var row = rows[0];
+						$("#standardForm").form('load',row);
+						$("#standardWindow").window('open');
+					}
+					
 				}
 			}];
 			

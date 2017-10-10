@@ -12,6 +12,7 @@
 			$(function(){
 				//页面加载后，对datagrid进行设置
 				$("#grid").datagrid({
+					// 设置表格的一些属性
 					columns:[[ // 二维数组   支持  多级表头，每一个数组 就是表头一行
 						{
 							field:"id",// 用于和服务器返回json中字段对应
@@ -29,7 +30,18 @@
 							width:100
 						}
 					]],
-					url:"product.json",
+					url:"product.json",// 加载json数据，显示表格数据
+					pagination:true, // 分页工具条
+					toolbar:[
+						{
+							id:"saveBtn",
+							text:"保存",
+							iconCls:"icon-save",
+							handler:function(){
+								alert("保存");
+							}
+						}
+					]
 				});
 			});
 		</script>
