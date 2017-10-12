@@ -23,6 +23,7 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,7 +38,7 @@ import cn.itcast.bos.domain.base.Courier;
 import cn.itcast.bos.domain.base.Standard;
 import cn.itcast.bos.service.CourierService;
 
-@Entity
+@Scope("prototype")
 @Controller
 @ParentPackage("json-default")
 @Namespace("/")
@@ -53,6 +54,7 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 		return courier;
 	}
 
+	//添加快递员
 	@Action(value = "courier_save", results = {
 			@Result(name = "success", type = "redirect", location = "./pages/base/courier.html") })
 	public String save() {
@@ -71,6 +73,7 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 		this.rows = rows;
 	}
 
+	//分页查询方法
 	@Action(value = "courier_pageQuery", results = { @Result(name = "success", type = "json") })
 	public String pageQuery() {
 		Pageable pageable = new PageRequest(page - 1, rows);
@@ -126,6 +129,22 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 		map.put("rows", pageData.getContent());
 
 		ActionContext.getContext().getValueStack().push(map);
+		return SUCCESS;
+	}
+	
+	//属性驱动
+	private String ids;
+	
+	public void setIds(String ids) {
+		this.ids = ids;
+	}
+
+	//快递员作废
+	@Action(value="courier_delBatch",results= {@Result(name="success",type="redirect",location="./pages/base/courier.html")})
+	public String delBatch() {
+		
+		String[] str = ids.split(",");
+		courierService.delBatch(str);
 		return SUCCESS;
 	}
 }

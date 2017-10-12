@@ -28,5 +28,14 @@ public class CourierServiceImpl implements CourierService {
 		return courierRepository.findAll(specification,pageable);
 	}
 
+	@Override
+	public void delBatch(String[] str) {
+		
+		for(String s:str) {
+			Integer id = Integer.parseInt(s);
+			courierRepository.delBatch(id);
+		}
+	}
+
 
 }

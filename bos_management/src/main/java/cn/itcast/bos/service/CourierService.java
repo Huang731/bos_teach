@@ -12,4 +12,6 @@ public interface CourierService {
 
 	Page<Courier> findAll(Specification<Courier> specification, Pageable pageable);
 
+	void delBatch(String[] str);
+
 }
