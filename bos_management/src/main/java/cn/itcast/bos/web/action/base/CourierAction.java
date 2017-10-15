@@ -1,21 +1,17 @@
 package cn.itcast.bos.web.action.base;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Entity;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Selection;
-import javax.persistence.criteria.Predicate.BooleanOperator;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.convention.annotation.Action;
@@ -37,6 +33,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import cn.itcast.bos.domain.base.Courier;
 import cn.itcast.bos.domain.base.Standard;
 import cn.itcast.bos.service.CourierService;
+
 
 @Scope("prototype")
 @Controller
@@ -124,7 +121,7 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 		//返回page
 		Page<Courier> pageData = courierService.findAll(specification, pageable);
 
-		Map<String, Object> map = new HashMap();
+		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("total", pageData.getTotalElements());
 		map.put("rows", pageData.getContent());
 
@@ -145,6 +142,15 @@ public class CourierAction extends ActionSupport implements ModelDriven<Courier>
 		
 		String[] str = ids.split(",");
 		courierService.delBatch(str);
+		return SUCCESS;
+	}
+	
+	//查询为关联的快递员
+	@Action(value="courier_findnoassociation",results= {@Result(name="success",type="json")})
+	public String findNoAssociation() {
+		List<Courier> couriers = courierService.findNoAssociation();
+		System.out.println(couriers.toString());
+		ActionContext.getContext().getValueStack().push(couriers);
 		return SUCCESS;
 	}
 }
