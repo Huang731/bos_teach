@@ -70,7 +70,7 @@ public class StandardAction extends ActionSupport implements ModelDriven<Standar
 		System.out.println(pageData.getContent());
 		
 		//返回客户端数据，需要total和rows
-		Map<String,Object> result = new HashMap();
+		Map<String,Object> result = new HashMap<String,Object>();
 		result.put("total", pageData.getTotalElements());
 		result.put("rows",pageData.getContent());
 		
@@ -86,5 +86,6 @@ public class StandardAction extends ActionSupport implements ModelDriven<Standar
 		ActionContext.getContext().getValueStack().push(list);
 		return SUCCESS;
 	}
+	
 
 }

@@ -51,7 +51,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	}
 	
 	protected void pushPageDataToValueStack(Page<T> pageData) {
-		Map<String,Object> map = new HashMap();
+		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("total", pageData.getTotalElements());
 		map.put("rows", pageData.getContent());
 		
