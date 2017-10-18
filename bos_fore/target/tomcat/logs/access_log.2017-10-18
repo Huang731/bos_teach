@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:19:00:23 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8082-exec-1 0
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:19:00:26 +0800] "GET /bos_fore/signup.html HTTP/1.1" 304 - http-bio-8082-exec-7 110
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:19:00:33 +0800] "GET /bos_fore/customer_sendSms.action?telephone=15874134408 HTTP/1.1" 200 - http-bio-8082-exec-8 383
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:19:00:51 +0800] "POST /bos_fore/coustomer_regist.action HTTP/1.1" 500 25903 http-bio-8082-exec-9 689
