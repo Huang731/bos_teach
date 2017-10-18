@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:51 +0800] "GET /bos_management/pages/base/fixed_area.html HTTP/1.1" 304 - http-bio-8080-exec-7 83
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:51 +0800] "POST /bos_management/taketime_findAll.action HTTP/1.1" 200 503 http-bio-8080-exec-10 329
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:51 +0800] "POST /bos_management/courier_findnoassociation.action HTTP/1.1" 200 2 http-bio-8080-exec-7 835
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:51 +0800] "POST /bos_management/fixedArea_pageQuery.action HTTP/1.1" 200 390 http-bio-8080-exec-8 622
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:56 +0800] "POST /bos_management/data/area.json HTTP/1.1" 200 225 http-bio-8080-exec-8 5
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:09:15:56 +0800] "POST /bos_management/data/sub_area.json HTTP/1.1" 200 273 http-bio-8080-exec-8 3
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "POST /bos_management/data/admin.json HTTP/1.1" 200 366 http-bio-8080-exec-9 60
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "POST /bos_management/data/menu.json HTTP/1.1" 200 2999 http-bio-8080-exec-6 62
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "GET /bos_management/pages/portal/gonggao.html?_=1508159652287 HTTP/1.1" 200 574 http-bio-8080-exec-4 9
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "GET /bos_management/pages/portal/daiban.html?_=1508159652304 HTTP/1.1" 200 854 http-bio-8080-exec-4 2
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "GET /bos_management/pages/portal/yujing.html?_=1508159652316 HTTP/1.1" 200 588 http-bio-8080-exec-4 3
+0:0:0:0:0:0:0:1 - - [16/Oct/2017:21:14:12 +0800] "GET /bos_management/pages/portal/bug.html?_=1508159652326 HTTP/1.1" 200 861 http-bio-8080-exec-4 1

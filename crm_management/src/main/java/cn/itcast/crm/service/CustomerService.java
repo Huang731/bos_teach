@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -38,4 +39,20 @@ public interface CustomerService {
 	@Consumes({ "application/xml", "application/json" })
 	public void associationCustomerToFixedArea(@QueryParam("customerIdsStr") String customerIdsStr,
 			@QueryParam("fixedAreaId") String fixedAreaId);
+
+	// 保存客户
+	@Path("/saveCustomer")
+	@POST
+	@Consumes({ "application/xml", "application/json" })
+	public void regist(Customer customer);
+
+	@Path("/selectCustomer/{telephone}")
+	@GET
+	@Consumes({ "application/xml", "application/json" })
+	public Customer findByTelephone(@PathParam("telephone") String telephone);
+
+	@Path("/updateCustomer")
+	@PUT
+	@Consumes({ "application/xml", "application/json" })
+	public void updateCustomer(@QueryParam("telephone") String telephone);
 }

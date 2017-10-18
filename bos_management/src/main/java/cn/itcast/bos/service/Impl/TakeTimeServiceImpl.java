@@ -20,7 +20,7 @@ public class TakeTimeServiceImpl implements TakeTimeService {
 	private TakeTimeRepository takeTimeRepository;
 	
 	@Override
-	public List<TakeTime> findAll() {
+	public List<TakeTime> findAll() { 
 		return takeTimeRepository.findAll();
 	}
 
