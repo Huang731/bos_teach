@@ -1,0 +1,3 @@
+127.0.0.1 - - [22/Oct/2017:10:08:59 +0800] "GET /crm_management/services/cutomerService/login?telephone=13112345678&password=123456 HTTP/1.1" 404 47 http-bio-8081-exec-1 57
+127.0.0.1 - - [22/Oct/2017:10:10:27 +0800] "GET /crm_management/services/customerService/login?telephone=13112345678&password=123456 HTTP/1.1" 200 356 http-bio-8081-exec-3 779
+127.0.0.1 - - [22/Oct/2017:10:10:54 +0800] "GET /crm_management/services/customerService/login?telephone=13112345678&password=123456 HTTP/1.1" 200 356 http-bio-8081-exec-5 16

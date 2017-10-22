@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
+
+
+
+	<!-- job -->
+	<bean id="PromotionJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="cn.itcast.bos.quartz.PromotionJob"></property>
+	</bean>
+	
+	<!-- trigger -->
+	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="PromotionJob"></property>
+		<!-- 启动服务马上执行 -->
+		<property name="startDelay" value="0"></property>
+		<!-- 5秒后重复执行 -->
+		<property name="repeatInterval" value="60000"></property>
+	</bean>
+	
+	<!-- scheduler -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="jobFactory" ref="jobFactory"></property>
+		<property name="triggers">
+			<list>
+				<ref bean="simpleTrigger"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>		

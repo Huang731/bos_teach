@@ -25,7 +25,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 import cn.itcast.bos.domain.base.FixedArea;
 import cn.itcast.bos.domain.base.TakeTime;
-import cn.itcast.bos.service.TakeTimeService;
+import cn.itcast.bos.service.base.TakeTimeService;
 import cn.itcast.bos.web.action.common.BaseAction;
 
 @Controller

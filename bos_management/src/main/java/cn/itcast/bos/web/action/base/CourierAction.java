@@ -32,7 +32,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import cn.itcast.bos.domain.base.Courier;
 import cn.itcast.bos.domain.base.Standard;
-import cn.itcast.bos.service.CourierService;
+import cn.itcast.bos.service.base.CourierService;
 
 
 @Scope("prototype")

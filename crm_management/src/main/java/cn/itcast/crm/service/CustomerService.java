@@ -55,4 +55,9 @@ public interface CustomerService {
 	@PUT
 	@Consumes({ "application/xml", "application/json" })
 	public void updateCustomer(@QueryParam("telephone") String telephone);
+	
+	@Path("/login")
+	@GET
+	@Consumes({"application/xml", "application/json"})
+	public Customer login(@QueryParam("telephone") String telephone,@QueryParam("password") String password);
 }

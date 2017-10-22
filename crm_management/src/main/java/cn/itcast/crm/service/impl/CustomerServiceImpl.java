@@ -62,4 +62,11 @@ public class CustomerServiceImpl implements CustomerService{
 		
 	}
 
+	@Override
+	public Customer login(String telephone, String password) {
+		return customerRepository.findByTelephoneAndPassword(telephone,password);
+	}
+
+	
+
 }

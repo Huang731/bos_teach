@@ -29,7 +29,7 @@ import org.springframework.stereotype.Controller;
 
 
 import cn.itcast.bos.domain.base.Area;
-import cn.itcast.bos.service.AreaService;
+import cn.itcast.bos.service.base.AreaService;
 import cn.itcast.bos.utils.PinYin4jUtils;
 import cn.itcast.bos.web.action.common.BaseAction;
 

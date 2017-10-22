@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import cn.itcast.bos.domain.base.Standard;
-import cn.itcast.bos.service.StandardService;
+import cn.itcast.bos.service.base.StandardService;
 
 @ParentPackage("json-default")
 @Namespace("/")

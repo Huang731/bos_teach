@@ -24,14 +24,16 @@ bosfore_app.controller("ctrlRead", ['$scope', '$http', function($scope, $http) {
 
 		$http({
 			method: 'GET',
-			url: 'data/promotion' + page + '.json',
+			url: 'promotion_pageQuery.action',
 			params: {
 				"page": page,
-				"pageSize": $scope.pageSize
+				"rows": $scope.pageSize
 			}
 		}).success(function(data, status, headers, config) {
 			// 显示表格数据 
 			$scope.pageItems = data.pageData;
+			
+			
 			// 计算总页数
 			$scope.totalCount = data.totalCount;
 			$scope.totalPages = Math.ceil($scope.totalCount / $scope.pageSize);

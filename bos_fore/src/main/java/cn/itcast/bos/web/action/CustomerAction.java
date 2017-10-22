@@ -18,14 +18,15 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 
+import cn.itcast.bos.constant.Constants;
 import cn.itcast.bos.utils.MailUtils;
-import cn.itcast.bos.utils.SmsUtils;
 import cn.itcast.crm.domain.Customer;
 
 @ParentPackage("json-default")
@@ -35,8 +36,9 @@ import cn.itcast.crm.domain.Customer;
 public class CustomerAction extends BaseAction<Customer> {
 
 	@Autowired
+	@Qualifier("jmsQueueTemplate")
 	private JmsTemplate jmsTemplate;
-	
+
 	@Action(value = "customer_sendSms")
 	public String sendSms() throws IOException {
 		// 手机号保存到Customer对象
@@ -47,9 +49,9 @@ public class CustomerAction extends BaseAction<Customer> {
 
 		System.out.println("生成手机验证码为：" + randomCode);
 		// 编辑短信内容
-		final String msg = "你的验证码为：123456【中正云通信】";
+		final String msg = randomCode;
 
-		//调用mq服务，发送一条信息
+		// 调用mq服务，发送一条信息
 		jmsTemplate.send("bos_sms", new MessageCreator() {
 			@Override
 			public Message createMessage(Session session) throws JMSException {
@@ -59,7 +61,7 @@ public class CustomerAction extends BaseAction<Customer> {
 				return mapMessage;
 			}
 		});
-		
+
 		return NONE;
 	}
 
@@ -124,8 +126,8 @@ public class CustomerAction extends BaseAction<Customer> {
 					.accept(MediaType.APPLICATION_JSON).get(Customer.class);
 
 			if (customer.getType() == null || customer.getType() != 1) {
-				WebClient
-						.create("http://localhost:8081/crm_management/services/customerService/updateCustomer?telephone="
+				WebClient.create(
+						"http://localhost:8081/crm_management/services/customerService/updateCustomer?telephone="
 								+ model.getTelephone())
 						.put(null);
 				ServletActionContext.getResponse().getWriter().println("邮箱绑定成功！");
@@ -134,7 +136,27 @@ public class CustomerAction extends BaseAction<Customer> {
 			}
 		}
 
-
 		return NONE;
+	}
+
+	@Action(value = "customer_login", results = {
+			@Result(name = "success", type = "redirect", location = "index.html#/myhome"),
+			@Result(name = "login", type = "redirect", location = "login.html") })
+	public String login() {
+		Customer customer = WebClient
+				.create(Constants.CRM_MANAGEMENT_URL + "/services/customerService/login?telephone="
+						+ model.getTelephone() + "&password=" + model.getPassword())
+				.accept(MediaType.APPLICATION_JSON).get(Customer.class);
+
+		if(customer!=null) {
+			//用户存到session里
+			ServletActionContext.getRequest().getSession().setAttribute("customer", customer);
+			return SUCCESS;
+			
+		}else {
+			  
+			return LOGIN;
+		}
+		
 	}
 }
